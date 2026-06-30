@@ -6,6 +6,10 @@ import ServicePage from './ServicePage';
 import CenikPage from './CenikPage';
 
 function App() {
+  if (process.env.NODE_ENV === 'production') {
+    return <div className="App" />;
+  }
+
   return (
     <HashRouter>
       <div className="App">
