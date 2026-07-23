@@ -20,7 +20,16 @@ function HomePage() {
         <div className="container">
           <h1>Advokát, kterému můžete věřit</h1>
           <p className="tagline">Váš úspěch a vaše spokojenost jsou pro mě osobní satisfakcí.</p>
-          <a href="#contact" className="cta-button">Domluvit konzultaci</a>
+          <a
+            href="#contact"
+            className="cta-button"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            Domluvit konzultaci
+          </a>
         </div>
       </section>
 
