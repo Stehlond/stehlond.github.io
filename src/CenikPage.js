@@ -1,18 +1,20 @@
-import { Link } from 'react-router-dom';
+import Icon from './Icon';
+import CtaBand from './CtaBand';
 
 const FEE_MODELS = [
   {
-    icon: '⏱️',
+    icon: 'clock',
     title: 'Hodinová sazba',
-    text: '[Popis hodinové sazby — vhodné pro případy, kde nelze rozsah práce předem přesně odhadnout. Orientační sazba: [X] Kč/hod.]',
+    highlight: '[X] Kč / hod.',
+    text: '[Popis hodinové sazby — vhodné pro případy, kde nelze rozsah práce předem přesně odhadnout.]',
   },
   {
-    icon: '📄',
+    icon: 'document',
     title: 'Pevná odměna',
     text: '[Popis pevné odměny za vyřízení konkrétního, dobře vymezeného úkonu nebo případu — částka dohodnutá předem.]',
   },
   {
-    icon: '🔁',
+    icon: 'repeat',
     title: 'Paušál',
     text: '[Popis měsíčního paušálu pro klienty s opakovanou potřebou právních služeb, např. drobné podnikatele.]',
   },
@@ -21,46 +23,37 @@ const FEE_MODELS = [
 function CenikPage() {
   return (
     <>
-      <section className="service-detail">
+      <section className="section section-tinted">
         <div className="container">
-          <h1>Ceník</h1>
-          <p>
-            Výši odměny se snažím s klienty domlouvat individuálně podle povahy a rozsahu
-            konkrétního případu, a to ještě před zahájením spolupráce, aby pro vás byla
-            cena vždy předem jasná a transparentní.
-          </p>
-        </div>
-      </section>
+          <div className="section-head">
+            <h1 className="section-title">Ceník</h1>
+            <span className="gold-rule" />
+            <p className="page-intro">
+              Výši odměny se snažím s klienty domlouvat individuálně podle povahy a rozsahu
+              konkrétního případu, a to ještě před zahájením spolupráce, aby pro vás byla
+              cena vždy předem jasná a transparentní.
+            </p>
+          </div>
 
-      <section className="advantages">
-        <div className="container">
-          <div className="advantages-grid">
+          <div className="fee-grid">
             {FEE_MODELS.map((f) => (
-              <div className="advantage-card" key={f.title}>
-                <div className="advantage-icon">{f.icon}</div>
-                <h3>{f.title}</h3>
-                <p>{f.text}</p>
-              </div>
+              <article className="fee-card" key={f.title}>
+                <Icon name={f.icon} className="fee-icon" strokeWidth={1.2} />
+                <h2>{f.title}</h2>
+                {f.highlight && <p className="fee-highlight">{f.highlight}</p>}
+                <p className="fee-text">{f.text}</p>
+              </article>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="service-detail">
-        <div className="container">
-          <p>
+          <p className="fee-note">
             Pokud se s klientem na výši odměny nedohodneme předem, řídí se odměna
             vyhláškou Ministerstva spravedlnosti č. 177/1996 Sb., advokátním tarifem.
           </p>
         </div>
       </section>
 
-      <section className="cta-section">
-        <div className="container">
-          <h2>Chcete nezávaznou nabídku?</h2>
-          <Link to="/#contact" className="cta-button">Napište mi</Link>
-        </div>
-      </section>
+      <CtaBand title="Chcete nezávaznou nabídku?" />
     </>
   );
 }

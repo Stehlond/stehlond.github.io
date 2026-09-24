@@ -1,7 +1,7 @@
 export const SERVICES = [
   {
     slug: 'obcanske-pravo',
-    icon: '⚖️',
+    icon: 'scales',
     title: 'Občanské právo',
     text: 'Spory, smlouvy a ochrana vašich práv v běžném životě.',
     intro: '[Krátké představení toho, jak pomáháte klientům v oblasti občanského práva a proč je dobré se obrátit právě na vás.]',
@@ -14,7 +14,7 @@ export const SERVICES = [
   },
   {
     slug: 'pravo-nemovitosti',
-    icon: '🏠',
+    icon: 'home',
     title: 'Právo nemovitostí',
     text: 'Převody, nájmy a vše kolem koupě či prodeje nemovitosti.',
     intro: '[Krátké představení toho, jak pomáháte klientům s nemovitostmi — od koupě bytu až po složitější spory.]',
@@ -27,7 +27,7 @@ export const SERVICES = [
   },
   {
     slug: 'rodinne-pravo',
-    icon: '👪',
+    icon: 'family',
     title: 'Rodinné právo',
     text: 'Rozvody, péče o děti a majetkové vyrovnání.',
     intro: '[Krátké představení citlivého přístupu k rodinným záležitostem a důrazu na rychlé a klidné řešení.]',
@@ -40,7 +40,7 @@ export const SERVICES = [
   },
   {
     slug: 'trestni-pravo',
-    icon: '🛡️',
+    icon: 'shield',
     title: 'Trestní právo',
     text: 'Obhajoba a zastupování v trestním řízení.',
     intro: '[Krátké představení přístupu k obhajobě a zastupování klientů v trestních věcech.]',

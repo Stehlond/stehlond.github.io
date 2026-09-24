@@ -1,4 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
+import Icon from './Icon';
+import PracticeAreas from './PracticeAreas';
+import CtaBand from './CtaBand';
 import { SERVICES } from './services';
 
 function ServicePage() {
@@ -7,10 +10,11 @@ function ServicePage() {
 
   if (!service) {
     return (
-      <section className="service-detail">
+      <section className="section section-tinted page-head">
         <div className="container">
-          <h1>Služba nenalezena</h1>
-          <p><Link to="/#services">Zpět na přehled služeb</Link></p>
+          <h1 className="section-title">Služba nenalezena</h1>
+          <span className="gold-rule" />
+          <p className="body-text"><Link to="/#oblasti-praxe" className="text-link">Zpět na oblasti praxe</Link></p>
         </div>
       </section>
     );
@@ -20,43 +24,28 @@ function ServicePage() {
 
   return (
     <>
-      <section className="service-detail">
+      <section className="section section-tinted">
         <div className="container">
-          <div className="service-detail-header">
-            <span className="service-icon-large">{service.icon}</span>
-            <h1>{service.title}</h1>
+          <div className="section-head">
+            <Icon name={service.icon} className="page-icon" strokeWidth={1.2} />
+            <h1 className="section-title">{service.title}</h1>
+            <span className="gold-rule" />
+            <p className="page-intro">{service.intro}</p>
           </div>
-          <p>{service.intro}</p>
-          <ul className="service-topics">
+          <ul className="topic-list">
             {service.topics.map((t) => (
-              <li key={t}>{t}</li>
+              <li key={t}>
+                <Icon name="check" className="icon-sm" strokeWidth={2} />
+                {t}
+              </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="services">
-        <div className="container">
-          <h2>Další oblasti</h2>
-          <div className="services-grid">
-            {otherServices.map((s) => (
-              <Link to={`/sluzby/${s.slug}`} className="service-card" key={s.slug}>
-                <div className="service-icon">{s.icon}</div>
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
-                <span className="service-card-link">Zjistit více <span className="arrow">→</span></span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PracticeAreas services={otherServices} title="Další oblasti" id="dalsi-oblasti" />
 
-      <section className="cta-section">
-        <div className="container">
-          <h2>Chcete se na něco zeptat?</h2>
-          <Link to="/#contact" className="cta-button">Napište mi</Link>
-        </div>
-      </section>
+      <CtaBand title="Chcete se na něco zeptat?" />
     </>
   );
 }
